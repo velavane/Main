@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js">
+</script>
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.get("https://us-central1-whozup-c4fd0.cloudfunctions.net/api/v1/message/groups",function(res) {
+	     console.log(Object.keys(res.result));
+			
+			var _results = Object.keys(res.result);
+		var a='';
+			$.each(_results, function(index, value) {
+				a += value ;
+				  $('#store').append(  '<p>'+ 'The value of key ['+index+']  ' + value );
+				 });
+				
+       
+           		  
+                 
+					// });
+		});
+    });
+});
+</script>
+</head>
+<body>
+<button>Get the key</button>
+
+<div id="container"> 
+ <p id="store"> </p>
+</div>
+
+</body>
+</html>
